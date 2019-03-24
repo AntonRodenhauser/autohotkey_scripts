@@ -13,6 +13,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
+
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;; table of contens ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,7 +28,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; speed optimzation ;
 ; other global settings ;
 
+
+
 ;-------------- general function not program specific --------------------
+
+; costumized keyboard layout  ;
+
 
 ; general utility stuff (in windows) ;
 
@@ -104,11 +114,12 @@ SetKeyDelay, 0, 0
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;; costumized keyboard layout  ;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
-
-
+#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\customKeyboardLayout.ahk
 
 
 
@@ -348,7 +359,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Dropbox\DokumenteDropbox\sonstiges\AutoHotkey Scripts\OpenApplikationsStuff.ahk
+#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\OpenApplikationsStuff.ahk
 
 
 
@@ -383,7 +394,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Dropbox\DokumenteDropbox\sonstiges\AutoHotkey Scripts\AnkiStuff.ahk
+#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\AnkiStuff.ahk
 
 
 
@@ -395,7 +406,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Dropbox\DokumenteDropbox\sonstiges\AutoHotkey Scripts\EvvernoteStuff.ahk      ; purpsely two v  so it does not confuse it whith evernote note when RegEx is active
+#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\EvvernoteStuff.ahk      ; purpsely two v  so it does not confuse it whith evernote note when RegEx is active
 
 
 
@@ -406,7 +417,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Dropbox\DokumenteDropbox\sonstiges\AutoHotkey Scripts\MessagingStuff.ahk
+#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\MessagingStuff.ahk
 
 
 

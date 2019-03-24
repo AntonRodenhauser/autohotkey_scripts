@@ -120,7 +120,7 @@ return
 
 
 :o:fahk::
-Run, C:\Users\Anton Rodenhauser\Dropbox\DokumenteDropbox\sonstiges\AutoHotkey Scripts
+Run, C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts
 return
 
 
