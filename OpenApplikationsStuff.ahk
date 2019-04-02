@@ -17,6 +17,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+; open other stuff ;
+
+
 ; open programmes  ;
 
 ; open folders  ;
@@ -26,6 +29,26 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; open drive stuff ;
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; open other stuff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;; open all ahk scripts 
+::oas::
+Edit  ;opens the current script for editing
+run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/AnkiStuff.ahk"
+run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/customKeyboardLayout.ahk"
+run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/EvvernoteStuff.ahk"
+run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/OpenApplikationsStuff.ahk"
+
+return
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;; open programmes  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -133,21 +156,13 @@ return
 
 
 
-:o:1::
+:o:lw::
 Send, {Alt down} 
 Send, {Tab}
 Send, {Alt up}
 return
 
 
-
-
-:o:2::
-Send, {Alt down} 
-Send, {Tab}
-Send, {Right} 
-Send, {Alt up}
-return
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

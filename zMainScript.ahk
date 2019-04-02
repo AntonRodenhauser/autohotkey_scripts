@@ -1,12 +1,7 @@
-﻿ #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿  #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
-
-
-
-
 
 
 
@@ -58,6 +53,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; fb, whatsapp, signal etc hotstrings & keys ;
+
+
+; --------------- programier stuff -----------
+
+
+; get examples in PyCharm/python ;
 
 
 ;--------------- text editor stuff ------------
@@ -133,8 +134,10 @@ SetKeyDelay, 0, 0
 
 
 
-;;;;;; remap alt grey, so google doc hotkeys work
-
+;;;;;; x via alt + strg + c (cut)  for my mouse
+!^c::
+Send, ^x
+return
 
 
 ;;;;;;; get name of current active window
@@ -254,9 +257,18 @@ return
 
 
 ; quick minimization of window
-:*:m,m::
+::t::
 WinMinimize,A
 return
+
+
+
+; maximize window: 
+:o:v::
+WinMaximize, A
+return
+
+
 
 
 
@@ -386,6 +398,64 @@ return
 
 
 #If
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;; programier stuff ;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+;;;;; import libraries for python
+::pia::
+Send,
+(
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+)
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; get examples in PyCharm/python ;;;;;;;;;;;;;;
+
+
+
+; get data frame
+::pdf::
+Send,
+(
+dataList = [[1,2,3],[4,5,6],[7,8,9]]
+index = ["i1","i2", "i3"]
+columns=["c1","c2","c3"]
+df= pd.DataFrame(dataList,  columns=columns, index = index)
+)
+return
+
+
+; get list with letters
+::pll::
+Send, L = ["v1", "v2", "v3"]
+return
+
+; get list with numbers
+::pln::
+Send, L = [1,2,3]
+return
+
+
+
+
+::ppy::
+Send, 
+(
+y =  
+print(y)
+)
+Send, {Up} 
+return
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

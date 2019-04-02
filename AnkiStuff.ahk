@@ -25,6 +25,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; other normal hotstrings for anki;
 
 
+;  editor stuff for anki
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -294,7 +297,7 @@ Send, {Enter 2}
 return
 
 
-
+;;;;; change note type
 ::chn::
 Send, b
 sleep, 200
@@ -302,6 +305,35 @@ Send, +^m
 sleep, 200
 Send, ^n
 return
+
+
+
+::cht::
+Send, b
+sleep, 200
+Send, ^d
+return
+
+
+
+
+;  editor stuff for anki
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  editor stuff for anki ;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
++Enter::
+Send, {End}
+Sleep, 100
+Send, {Enter}
+return
+
+
 
 
 
