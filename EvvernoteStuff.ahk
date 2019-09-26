@@ -15,7 +15,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
+; open specific notes
 
 
 
@@ -37,7 +37,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-;;;;;;;;;; open specific notes ;;;;;;;;;;;;;;;;;
+
 
 
 
@@ -73,8 +73,56 @@ return
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;; open specific notes ;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; open search stuff
+::est::
+Send, #+f
+Sleep, 300
+Send, intitle:Steuernummern intitle:IDs
+Sleep, 300
+Send, {Tab}
+Send, ^{Enter}
+return
+
+::efi::
+Send, #+f
+Sleep, 300
+Send, intitle:Finanzen intitle:Rente
+Sleep, 300
+Send, {Tab}
+Send, ^{Enter}
+return
+
+::epa::
+Send, #+f
+Sleep, 300
+Send, intitle:Benutzernamen/Passwörter/Kontozugang
+Sleep, 300
+Send, {Tab}
+Send, ^{Enter}
+return
+
+::exx::
+Send, #+f
+Sleep, 300
+Send, intitle:sex intitle:xxxx
+Sleep, 300
+Send, {Tab}
+Send, ^{Enter}
+return
+
+
+
+::etr::
+Send, #+f
+Sleep, 300
+Send, intitle:MCA intitle:Triad
+Sleep, 300
+Send, {Tab}
+Send, ^{Enter}
+return
 
 ::eem::
 Send, #+f

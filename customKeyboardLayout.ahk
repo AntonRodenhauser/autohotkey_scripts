@@ -9,33 +9,7 @@
 
 
 
-;;;;; disabling capslock and setting it anew
 
-CapsLock::Return
-
-::p::
-SetCapsLockState, % GetKeyState("Capslock","t") ? "Off" : "On" ;toggle capslock
-return
-
-
-
-;;;; disable keys for practice
-Left::
-Send, Falsch
-return
-
-
-Up::
-Send, Falsch
-return
-
-Right::
-Send, Falsch
-return
-
-Down::
-Send, Falsch
-return
 
 
 
@@ -45,6 +19,11 @@ return
 ;;;;;;;;;;;;;;;;;;;;;; CapsLock Layout ;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; all navigational keys
+
+
+;;;;; disabling capslock and setting it anew
+
+CapsLock::Return
 
 
 
@@ -135,126 +114,65 @@ return
 
 
 
-;~ ;;;;;; ???? 
-;~ CapsLock & -::
-;~ Send, ^x
-;~ return
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;; AltGreek Layout ;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;; AppsKey Menu key layout ;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;;; send =
-<^>!t::
+AppsKey & t::
 Send, {=}
 return
 
 
 ;;;; ]
-<^>!r::
+AppsKey & r::
 Send, ]
 return
 
 
 ;;;;; [
-<^>!e::
+AppsKey & e::
 Send, [
 return
 
 
 ;;;;; ?
-<^>!g::
+AppsKey & g::
 Send, ?
 return
 
 ;;;;; !
-<^>!f::
+AppsKey & f::
 Send, {!}
 return
 
 
 ;;;;; }
-<^>!d::
+AppsKey & d::
 Send, {}}
 return
 
 
 ;;;; send {
-<^>!s::
+AppsKey & s::
 Send, {{}
 return
 
 
 ;;;; send (
-<^>!v::
+AppsKey & v::
 Send, (
 return
 
 
 ;;;; send )
-<^>!b::
+AppsKey & b::
 Send, )
 return
 
-
-;;;;;;;;;;;;;;; training
-
-
-
-;;;; send =
-;~ +0::
-;~ Send, falsch
-;~ return
-
-
-;;;; ]
-<^>!9::
-Send, falsch
-return
-
-
-;;;;; [
-<^>!8::
-Send, falsch
-return
-
-
-;~ ;;;;; ?
-;~ +ß::
-;~ Send, ?
-;~ return
-
-;~ ;;;;; !
-;~ +1::
-;~ Send, falsch
-;~ return
-
-
-;~ ;;;;; }
-;~ <^>!d::
-;~ Send, {}}
-;~ return
-
-
-;;;; send {
-<^>!7::
-Send, falsch
-return
-
-
-;~ ;;;; send (
-;~ +8::
-;~ Send, (
-;~ return
-
-
-;~ ;;;; send )
-;~ <^>!b::
-;~ Send, )
-;~ return
 
 
 

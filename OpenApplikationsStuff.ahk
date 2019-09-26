@@ -45,7 +45,6 @@ run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scr
 run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/customKeyboardLayout.ahk"
 run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/EvvernoteStuff.ahk"
 run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/OpenApplikationsStuff.ahk"
-
 return
 
 
@@ -97,6 +96,10 @@ if WinExist("WhatsApp")
 return
 
 
+; Open Dragon
+:o:odr::
+Run, C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dragon\Dragon
+return
 
 
 
@@ -170,6 +173,10 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+:o:ddm::
+Run, https://drive.google.com/drive/folders/1VtOyvrKrHs9jy9lA1pVlUsgxHLIEyc2B
+return
+
 :o:dov::
 Run, https://drive.google.com/drive/my-drive?ths=true
 return
@@ -181,5 +188,9 @@ return
 
 :o:dkn::
 Run, https://drive.google.com/drive/folders/1z11vYSgw1vEBBr6wl9yirk9YLSisrWry?ths=true
+return
+
+:o:oee::
+Run, https://docs.google.com/spreadsheets/d/1BRFuV1e6hxxHEOdnQLi2_0GJ4FhatOS8QQF5B_rfjQE/edit#gid=0
 return
 

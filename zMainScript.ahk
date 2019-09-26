@@ -9,10 +9,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-
-
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;; table of contens ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -22,6 +18,16 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; speed optimzation ;
 ; other global settings ;
+
+
+
+;-------------- Programmable keypad / RSI stuff --------------------
+
+
+
+; general RSI stuff
+; Programmable keypad
+
 
 
 
@@ -69,6 +75,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; general abbreviations that I often need ;
 
+; navigational hotsttrings, bulk deletion etc ;
 
 
 ;--------------- functions --------------------
@@ -105,8 +112,6 @@ SetKeyDelay, 0, 0
 
 
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;; random test stuff ;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -114,6 +119,70 @@ SetKeyDelay, 0, 0
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;; general RSI stuff ;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+numpad5::
+Send, ^{+}
+return
+
+
+WheelDown::return
+WheelUp::return
+
+
+; Dragon dictation box closing/press transfer
+#z::
+Click, 897, 351
+return
+
+
+
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;; Programmable keypad ;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;; hold mouseclick drag etc, via numpad one, which is directly put to amag pad
+Numpad1::
+Send,  {LButton down}
+KeyWait, Numpad1
+return
+
+Numpad1 up::
+Send, {LButton up}
+return
+
+
+;;;;; scroll up and down, with QckMac1 and QckMac2
+Numpad3::
+Send, {WheelDown}
+return
+
+Numpad2::
+Send, {WheelUp}
+return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; costumized keyboard layout  ;;;;;;;;;;;
@@ -123,15 +192,16 @@ SetKeyDelay, 0, 0
 #Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\customKeyboardLayout.ahk
 
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; general utility stuff (in windows) ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
-
+;;;;; make an ordinary mouse click
+::mc::
+Send, {LButton}
+return
 
 
 ;;;;;; x via alt + strg + c (cut)  for my mouse
@@ -159,12 +229,12 @@ return
 Send, #s
 Sleep, 300
 Send, nachtmodus
-Sleep, 1000
+Sleep, 1200
 Send, {Enter}
 
 ; click button
 WinWait, Einstellungen, , 4   ; wait for window, but no longer than 4 seconds
-Sleep, 1000
+Sleep, 1200
 Click, 122, 279
 Sleep, 100
 Send, !{F4}
@@ -277,6 +347,7 @@ return
 
 :o:mm::
 WinMove, A,, 0, 0, 1900, 1050
+sleep, 300
 WinMaximize, A
 return
 
@@ -291,8 +362,9 @@ Send,{Enter}
 return
 
 :o:ml::
-WinMove, A,, -1000, 20, 1000, 1200
-sleep, 200
+;WinMove, A,, -1000, 200, 1000, 1200
+Send, #+{Left}
+sleep, 300
 WinMaximize, A
 return
 
@@ -316,8 +388,9 @@ Send,{Enter}
 return
 
 :o:mr::
-WinMove, A,, 3000, 20, 1000, 1200
-sleep, 200
+;WinMove, A,, 3000, 20, 1000, 1200
+Send, #+{Right}
+sleep, 300
 WinMaximize, A
 return
 
@@ -499,6 +572,19 @@ return
 
 
 
+
+;;;;; jump to next line with cursor
++Enter::
+Send, {End}
+Sleep, 100
+Send, {Enter}
+return
+
+
+
+
+
+
 ;;;;;;;;;;;;;;;  make line underlined bold mit blau  ;;;;;;;;;;;;;;;;;;;;;;
 ^h::             ; make bold, underline and press F7
 markLine()
@@ -515,6 +601,10 @@ Sleep 200  ; necessary, otherwise "too fast" for anki?
 
 Send, {Right}
 ctrl_ub()
+
+Sleep 200  ; necessary, otherwise "too fast" for anki? 
+
+Send, {Down}
 return
 
 
@@ -560,8 +650,110 @@ return
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;; navigational hotsttrings, bulk deletion etc ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
+
+; delete downwards
+:o:d::
+Send, {Shift down}
+Sleep, 100 
+Send, {Down 5}
+Send, {Shift up}
+Sleep, 100 
+Send, {Backspace}
+return
+
+:o:dd::
+Send, {Shift down}
+Sleep, 100 
+Send, {Down 10}
+Send, {Shift up}
+Sleep, 100 
+Send, {Backspace}
+return
+
+:o:ddd::
+Send, {Shift down}
+Sleep, 100 
+Send, {Down 30}
+Send, {Shift up}
+Sleep, 100 
+Send, {Backspace}
+return
+
+
+; delete up
+:o:f::
+Send, {Shift down}
+Sleep, 100 
+Send, {Up 5}
+Send, {Shift up}
+Sleep, 100 
+Send, {Backspace}
+return
+
+:o:ff::
+Send, {Shift down}
+Sleep, 100 
+Send, {Up 10}
+Send, {Shift up}
+Sleep, 100 
+Send, {Backspace}
+return
+
+:o:fff::
+Send, {Shift down}
+Sleep, 100 
+Send, {Up 30}
+Send, {Shift up}
+Sleep, 100 
+Send, {Backspace}
+return
+
+
+
+; press enter multiple times
+:o:j::
+Send, {Enter 5}
+return
+
+:o:jj::
+Send, {Enter 10}
+return
+
+:o:jjj::
+Send, {Enter 30}
+return
+
+; move cursor upwards
+:o:u::
+Send, {Up 5}
+return
+
+:o:uu::
+Send, {Up 10}
+return
+
+:o:uuu::
+Send, {Up 30}
+return
+
+; move cursor down
+:o:z::
+Send, {Down 5}
+return
+
+:o:zz::
+Send, {Down 10}
+return
+
+:o:zzz::
+Send, {Down 30}
+return
 
 
 ;;;;;;;  delete last sentence
@@ -632,10 +824,15 @@ return
 ;;;;;;;;;;;;;;; delete line ;;;;;;;;;;;;;;;;;;;;
 ^k::
 deleteLine()
+Send, {BackSpace}
 return
 
-
-
+; delete line down
+^m::
+Send, {Down}
+deleteLine()
+Send, {BackSpace}
+return
 
 
 ;;;;;;;;;;;;  double quotation marks
@@ -673,10 +870,20 @@ Send, 015223257315
 return
 
 
+:o:ban::
+Send,
+( 
+Kontoinhaber: Anton Rodenhauser
+Bank: Sparda Bank Augsburg
+IBAN: DE81720905000000358331
+BIC: GENODEF1S03 
+Sparda Bank Augsburg
+)
+return
 
-
-
-
+:o:blz::
+Send, DE81720905000000358331
+return
 
 
 

@@ -326,12 +326,20 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
-+Enter::
-Send, {End}
-Sleep, 100
-Send, {Enter}
+:o:pac::
+Send, {Enter 40}
+Send, {Up 15}
 return
+
+
+
+
+
+
+
+
+
+
 
 
 
