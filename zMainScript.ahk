@@ -1,10 +1,7 @@
-﻿  #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
-
-
 
 
 
@@ -26,7 +23,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; general RSI stuff
-; Programmable keypad
+; Programmable amag keypad
 
 
 
@@ -141,26 +138,54 @@ numpad5::
 Send, ^{+}
 return
 
-
+;;;;; Disable scroll wheel
 WheelDown::return
 WheelUp::return
 
 
+; Open Dragon
+:o:odr::
+Run, C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Dragon\Dragon
+return
+
+;;;;; Restart Dragon
+:o:rdr::
+Process, Close, Dragon
+MsgBox, nn
+return
+
+
+
 ; Dragon dictation box closing/press transfer
 #z::
-Click, 897, 351
+; click, 897, 351
+Send ^a
+Sleep,400
+Send ^c
+Sleep,300
+Send, {Escape}
+Sleep,300
+Send ^v
 return
 
 
 
 
+;~ ;;;;; move to left/right virtual desktop
 
+;~ Numpad7::
+;~ Send ^#{Left}
+;~ return
+
+;~ Numpad9::
+;~ Send ^#{Right}
+;~ return
 
 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;; Programmable keypad ;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;; Programmable amag keypad ;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -175,7 +200,15 @@ Send, {LButton up}
 return
 
 
-;;;;; scroll up and down, with QckMac1 and QckMac2
+
+;;;;; mouse right click via qckMac6
+
+^#m::
+Send, {RButton}
+return
+
+
+;;;;; scroll up and down, with numpad3 and numpad2
 Numpad3::
 Send, {WheelDown}
 return
@@ -183,6 +216,7 @@ return
 Numpad2::
 Send, {WheelUp}
 return
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; costumized keyboard layout  ;;;;;;;;;;;
@@ -608,6 +642,29 @@ Send, {Down}
 return
 
 
+
+
+;;;;;; make heading for anki, scroll and add spacing
+!h::             ; make bold, underline and press F7
+markLine()
+Sleep 200  
+ctrl_ub()
+Sleep 300  ; necessary, otherwise "too fast" for anki? 
+Send, {F7}
+Sleep 200  ; necessary, otherwise "too fast" for anki? 
+Send, {Right}
+Sleep, 100
+ctrl_ub()
+Sleep 200  ; necessary, otherwise "too fast" for anki? 
+Send, {Down}
+Sleep, 100
+Send, {Enter 7}
+Send, {WheelDown 3}
+return
+
+
+
+
 ;;;;;;;;;;;;;;;  make line underlined bold ohne blau  
 ^!h::             
 markLine()
@@ -632,7 +689,7 @@ return
 
 
 ;;;;;;;;;;;;; arrow
-:o:arr::
+:O:arr::
 Send, ==>
 return
 
@@ -656,6 +713,13 @@ return
 
 
 
+
+;;;; add white space and move cursor up
+
+:o:aws::
+Send, {Enter 30}
+Send, {Up 30}
+return
 
 ; delete downwards
 :o:d::
@@ -885,6 +949,9 @@ return
 Send, DE81720905000000358331
 return
 
+:o:edc::
+Send, (For complicated reasons it's much easier to type in English for me right now, but you're very welcome to answer in German)
+return
 
 
 
