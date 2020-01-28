@@ -16,9 +16,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; open specific notes
-
-
-
+; other useful hostrings
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -45,9 +43,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;; other useful hostrings ;;;;;;;;;;;;;;;;;
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; turn off the options from above: 
 #If
@@ -68,6 +66,21 @@ Sleep, 400
 Send, ^+{Space}
 Send, {Right}
 return
+
+
+; delete row in a table
+
+::drt::
+Send, {RButton}
+Sleep, 300
+Send, {Down 5}
+Sleep, 300
+Send, {Enter}
+return
+
+
+
+
 
 
 

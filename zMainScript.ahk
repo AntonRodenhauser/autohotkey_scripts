@@ -25,7 +25,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; general RSI stuff
 ; Programmable amag keypad
 
-
+; no-brainer scripting stuff
 
 
 ;-------------- general function not program specific --------------------
@@ -93,9 +93,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
+
+
 ;;;;;;;; other global settings ;;;;;;;;;;;;;;;;
 SetTitleMatchMode, RegEx
-#Hotstring EndChars `t      ;  sets the new ending characters for all hotstrings, not just the ones beneath it:
+; #Hotstring EndChars `t      ;  make tap new ending characters for all hotstrings, not just the ones beneath it
+#Hotstring EndChars +      ;  sets the new ending characters for all hotstrings, not just the ones beneath it:
 SetKeyDelay, 0, 0
 
 
@@ -112,8 +115,6 @@ SetKeyDelay, 0, 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;; random test stuff ;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 
 
 
@@ -169,6 +170,33 @@ Send ^v
 return
 
 
+; delete a no-brainer command
+::dkc::
+Sleep, 200
+Send, {Down 2}
+Sleep, 200
+Send, {Enter}
+Sleep, 300
+Send, {Enter}
+return
+
+
+
+
+
+; open link in a new tab, for feet pedal on table
+^+#q::
+Send, {RButton}
+Sleep, 300
+Send, {Down}
+Sleep, 200
+Send, {Enter}
+return
+
+
+
+
+
 
 
 ;~ ;;;;; move to left/right virtual desktop
@@ -218,17 +246,38 @@ Send, {WheelUp}
 return
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;; no-brainer scripting stuff ;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; costumized keyboard layout  ;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\customKeyboardLayout.ahk
+;~  #Include C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\customKeyboardLayout.ahk
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; general utility stuff (in windows) ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;; open all ahk scripts 
+::oas::
+Edit  ;opens the current script for editing
+run, Edit "C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\AnkiStuff.ahk"
+run, Edit "C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\customKeyboardLayout.ahk"
+run, Edit "C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\EvvernoteStuff.ahk"
+run, Edit "C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\OpenApplikationsStuff.ahk"
+return
+
 
 
 
@@ -262,20 +311,40 @@ return
 :c:nm::
 Send, #s
 Sleep, 300
-Send, nachtmodus
+Send, night light
 Sleep, 1200
 Send, {Enter}
 
 ; click button
 WinWait, Einstellungen, , 4   ; wait for window, but no longer than 4 seconds
 Sleep, 1200
-Click, 122, 279
+Click, 108, 252
 Sleep, 100
 Send, !{F4}
 return
 
 
 
+; get auto hotkey template
+:o:aht::
+Send,
+(
+; 
+:o:xxx::
+Send, {{}RButton{}}
+Sleep, 300
+Send, {{}Down{}}
+Sleep, 200
+Send, {{}Enter{}}
+return
+
+;~ MsgBox, test
+;~ Send,
+;~ (
+;~ ..
+;~ )
+)
+return
 
 
 ;;;;;;;; clear all virtual desktops
@@ -478,7 +547,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\OpenApplikationsStuff.ahk
+#Include C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\OpenApplikationsStuff.ahk
 
 
 
@@ -500,6 +569,25 @@ return
 :o:+::
 Send, {Tab 19}
 return
+
+
+
+
+
+; open link in a new tab
+:o:gnw::
+Send, {RButton}
+Sleep, 300
+Send, {Down}
+Sleep, 200
+Send, {Enter}
+return
+
+
+
+
+
+
 
 
 
@@ -571,7 +659,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\AnkiStuff.ahk
+#Include C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\AnkiStuff.ahk
 
 
 
@@ -583,7 +671,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\EvvernoteStuff.ahk      ; purpsely two v  so it does not confuse it whith evernote note when RegEx is active
+#Include C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\EvvernoteStuff.ahk      ; purpsely two v  so it does not confuse it whith evernote note when RegEx is active
 
 
 
@@ -594,7 +682,7 @@ return
 
 
 
-#Include C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts\MessagingStuff.ahk
+#Include C:\Users\anton\Documents\sonstiges_offline\autohotkey_scripts\MessagingStuff.ahk
 
 
 
@@ -615,7 +703,13 @@ Send, {Enter}
 return
 
 
-
+;;;;; jump to next line with hyphen, to make lists
+!Enter::
+Send, {End}
+Sleep, 100
+Send, {Enter}
+Send, -{Space}
+return
 
 
 
@@ -654,6 +748,7 @@ Send, {F7}
 Sleep 200  ; necessary, otherwise "too fast" for anki? 
 Send, {Right}
 Sleep, 100
+Send, ?
 ctrl_ub()
 Sleep 200  ; necessary, otherwise "too fast" for anki? 
 Send, {Down}
@@ -1058,7 +1153,7 @@ openFontSize()
 	Send, ^d
 	Loop,
 	{
-		IfWinActive, Schriftart
+		IfWinActive, Font
 		{
 			Send, {tab 2}
 			return

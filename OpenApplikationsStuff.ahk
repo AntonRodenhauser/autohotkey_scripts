@@ -37,15 +37,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;; open all ahk scripts 
-::oas::
-Edit  ;opens the current script for editing
-run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/AnkiStuff.ahk"
-run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/customKeyboardLayout.ahk"
-run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/EvvernoteStuff.ahk"
-run, Edit "C:\Users\Anton Rodenhauser\Documents\ProgrammierSachen\autohotkey_scripts/OpenApplikationsStuff.ahk"
-return
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

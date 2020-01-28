@@ -41,7 +41,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-#If WinActive( "Angezeigte Karte bearbeiten" ) || WinActive("Hinzufügen") || WinActive(".*Browser.*") || WinActive("Anki - Benutzer 1")    ; these hotkeys only work in anki!
+#If WinActive( "Edit Current" ) || WinActive("Add") || WinActive(".*Browse.*") || WinActive("User 1 - Anki")    ; these hotkeys only work in anki!
 
 
 ;;;;;;;;;;;;;;; greek letters ;;;;;;;;;;;;;;;;;;
@@ -275,7 +275,7 @@ return
 
 
 ::moh::
-Send, my own hotkey/autohotkey stuff:{Enter 2}
+Send, my own hotkey/voice command/ahk stuff:{Enter 2}
 return
 
 
@@ -328,7 +328,7 @@ return
 
 :o:pac::
 Send, {Enter 40}
-Send, {Up 15}
+Send, {Up 18}
 return
 
 
